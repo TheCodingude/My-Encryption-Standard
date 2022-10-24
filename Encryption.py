@@ -14,9 +14,9 @@ class Encrypt:
 
     def createKey() -> str:
 
-        choice = []
         key = Fernet.generate_key()
         key = key.decode()
+        choice = []
         list = [10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
         choice.append(random.choice(list))
         choice.append(random.choice(list))
@@ -25,8 +25,20 @@ class Encrypt:
         final = random.choice(choice)
         return str(final) + key
 
-    def encrypt_key():
-        pass
+    def getShift(self):
+        choice = []
+        list = [10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
+        choice.append(random.choice(list))
+        choice.append(random.choice(list))
+        choice.append(random.choice(list))
+        choice.append(random.choice(list))
+        final = random.choice(choice)
+        return final
+
+    def encrypt_key(self):
+        
+        shift = self.getShift()
+        shifted = self.letters[(s := shift):] + self.letters[:s]
 
 
 
